@@ -3,7 +3,11 @@ from flet import Control, IconButton, Page, Row, TextField, icons
 
 
 def plus_minus(page: Page) -> Control:
-    txt_number = TextField(value="0", text_align="right", width=100)
+    txt_number = TextField(
+        value="0",
+        text_align="right",
+        width=100,
+    )
 
     def minux_click(e):
         txt_number.value = int(txt_number.value) - 1
@@ -33,4 +37,8 @@ def main(page: Page):
 
 
 if __name__ == "__main__":
-    flet.app(target=main, view=flet.WEB_BROWSER)
+    flet.app(
+        target=main,
+        port=8550,
+        view=flet.WEB_BROWSER,
+    )

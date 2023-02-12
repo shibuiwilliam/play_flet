@@ -51,7 +51,6 @@ DOCKER_APP_IMAGE_NAME = $(DOCKER_REPOSITORY):$(APP_VERSION)
 .PHONY: build_app
 build_app:
 	docker build \
-		--platform x86_64 \
 		-t $(DOCKER_APP_IMAGE_NAME) \
 		-f $(DOCKERFILE_APP) \
 		.
@@ -62,7 +61,7 @@ run_app:
 		-it \
 		--rm \
 		--name=flet \
-		--platform x86_64 \
+		-p 18550:8550 \
 		$(DOCKER_APP_IMAGE_NAME) \
 		python -m src.main
 
